@@ -2,20 +2,26 @@ import { useState } from 'react';
 
 export default function Login(props) {
 
-    const [formData,setFormData]=useState({
+    const [formData, setFormData]=useState({
         name:'',
-        password:'',
+        password:''
         })
-        
-       const handleChange = (e) => {
+
+        const handleChange = (e) => {
             setFormData({
+                ...formData,
                 [e.target.name]: e.target.value
+                
             })
         }
 
         const handleSubmit = (e) => {
             e.preventDefault()
-            fetch("http://localhost:4200/login", {
+            console.log({
+                name: formData.name,
+                password: formData.password
+            })
+            fetch("http://localhost:9393/login", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -35,9 +41,7 @@ export default function Login(props) {
             })
     
         }
-
-
-        console.log(formData)
+      
     return (
         
         <div>
