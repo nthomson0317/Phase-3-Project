@@ -9,7 +9,6 @@ export default function home() {
         
         
             <img src={logo}/>
-            
     
         <h1>Enter Beanie</h1>
         </div>
